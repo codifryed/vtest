@@ -42,9 +42,7 @@ class Vtest : CliktCommand() {
 
         (1..times).forEach {
             val result = ping(host)
-            echo(
-                "Ping #$it for $host: ${if (result.first) "Success" else "Failure"} time: ${result.second}ms"
-            )
+            echo("Ping #$it for $host: ${if (result.first) "Success" else "Failure"} time: ${result.second}ms")
             results.add(result)
             Thread.sleep(500) // add a little delay for better verification
         }
@@ -74,8 +72,7 @@ class Vtest : CliktCommand() {
         }
     }
 
-    private fun elapsedTime(startTimeMillis: Long): Long =
-        (System.currentTimeMillis() - startTimeMillis)
+    private fun elapsedTime(startTimeMillis: Long): Long = System.currentTimeMillis() - startTimeMillis
 }
 
 fun main(args: Array<String>) = Vtest().main(args)
